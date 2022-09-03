@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 void main() {
   runApp(
     MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: Colors.teal,
         appBar: AppBar(
@@ -10,6 +11,7 @@ void main() {
           backgroundColor: Colors.teal.shade700,
         ),
         body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             CircleAvatar(
               backgroundImage: AssetImage('images/jahanzeb.png'),
@@ -19,51 +21,69 @@ void main() {
               'Jahanzeb Naeem',
               style: TextStyle(
                 fontSize: 40.0,
-                color: Colors.white,
+                color: Colors.teal.shade900,
                 fontWeight: FontWeight.bold,
+                fontFamily: 'Pacifico',
               ),
             ),
             Text(
               'Founder | CTO | Flutter Instructor',
               style: TextStyle(
-                fontSize: 20.0,
-                color: Colors.white,
+                fontSize: 25.0,
+                color: Colors.teal.shade900,
                 fontWeight: FontWeight.bold,
-              ),
-            ),
-            Container(
-              color: Colors.white,
-              height: 50.0,
-              margin: EdgeInsets.all(20.0),
-              child: Padding(
-                padding: EdgeInsets.only(
-                  left: 16.0,
-                ),
-                child: Row(
-                  children: [
-                    Icon(
-                      Icons.phone,
-                      size: 30.0,
-                    ),
-                    SizedBox(
-                      width: 10.0,
-                    ),
-                    Text(
-                      '123 456 7890',
-                      style: TextStyle(
-                        fontSize: 25.0,
-                      ),
-                    ),
-                  ],
-                ),
+                fontFamily: 'Source Sans Pro',
               ),
             ),
             SizedBox(
-              height: 10.0,
+              width: 150.0,
+              height: 50.0,
+              child: Divider(
+                thickness: 3,
+                color: Colors.teal.shade800,
+              ),
             ),
-            Container(
-              color: Colors.white,
-              height: 40.0,
+            Padding(
+              padding: const EdgeInsets.fromLTRB(8.0, 0.0, 8.0, 0.0),
+              child: Card(
+                color: Colors.white,
+                margin: EdgeInsets.all(20.0),
+                child: ListTile(
+                  leading: Icon(
+                    Icons.phone,
+                    size: 30.0,
+                    color: Colors.teal,
+                  ),
+                  title: Text(
+                    '123 456 7890',
+                    style: TextStyle(
+                      fontSize: 30.0,
+                      color: Colors.teal,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(8.0, 0.0, 8.0, 0.0),
+              child: Card(
+                color: Colors.white,
+                margin: EdgeInsets.all(20.0),
+                child: ListTile(
+                  leading: Icon(
+                    Icons.email,
+                    size: 30.0,
+                    color: Colors.teal,
+                  ),
+                  title: Text(
+                    'test@test.com',
+                    style: TextStyle(
+                      fontSize: 30.0,
+                      color: Colors.teal,
+                    ),
+                  ),
+                ),
+              ),
             ),
           ],
         ),
