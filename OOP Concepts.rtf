@@ -8,7 +8,7 @@
 \paperw11900\paperh16840\margl1440\margr1440\vieww28600\viewh15740\viewkind0
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
-\f0\fs130 \cf0 Pillars Of OOP\
+\f0\fs88 \cf0 Pillars Of OOP\
 \pard\tx220\tx720\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\li720\fi-720\pardirnatural\partightenfactor0
 \ls1\ilvl0\cf0 {\listtext	1.	}Inheritance\
 {\listtext	2.	}Polymorphism\
@@ -17,10 +17,40 @@
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 \cf0 \
 Classes\
-Object\
-Instances\
+	Blue print\
+	Attributes/Properties\
+	Methods\
+	Constructor\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 	Destructor\
+	\
+	Person \{\
+		int Age \{ set; get; \};\
+		string Name \{ set; get; \};\
+		\
+		Person() \{\}\
 \
-Access Modifier\
+		Person(int age, string name) \{\
+			this.Age = age;\
+			this.Name = name;\
+		\}\
+		\
+		talk() \{\
+			print(\'91I am talking\'92);\
+		\}\
+	\}\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 Object\
+Person p = new Person();\
+\
+Instances\
+p.Name = \'91Ali\'92;\
+\
+Getter\
+Setter\
+\
+Access Modifier/Scope\
 \pard\tx220\tx720\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\li720\fi-720\pardirnatural\partightenfactor0
 \ls2\ilvl0\cf0 {\listtext	1)	}Private\
 {\listtext	2)	}Public\
@@ -52,9 +82,6 @@ Quality Assurance\
 \
 Bug\
 Error\
-\
-Constructor\
-Destructor\
 \
 Method/Function\
 Attributes/Properties\
