@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quizzler_app/question.dart';
 
 void main() => runApp(Quizzler());
 
@@ -36,13 +37,23 @@ class _QuizPageState extends State<QuizPage> {
     // ),
   ];
 
-  List<String> questions = [
-    'You can lead a cow down stairs but not up stairs.',
-    'Approximately one quarter of human bones are in the feet.',
-    'A slug\'s blood is green.'
-  ];
+  // List<String> questions = [
+  //   'You can lead a cow down stairs but not up stairs.',
+  //   'Approximately one quarter of human bones are in the feet.',
+  //   'A slug\'s blood is green.'
+  // ];
+  //
+  // List<bool> answers = [false, true, true];
 
-  List<bool> answers = [false, true, true];
+  // Question q1 = Question(q: 'You can lead a cow down stairs but not up stairs.', a: false);
+
+  List<Question> questionBank = [
+    Question(q: 'You can lead a cow down stairs but not up stairs.', a: false),
+    Question(
+        q: 'Approximately one quarter of human bones are in the feet.',
+        a: true),
+    Question(q: 'A slug\'s blood is green.', a: true)
+  ];
 
   int questionNumber = 0;
 
@@ -59,7 +70,7 @@ class _QuizPageState extends State<QuizPage> {
             child: Center(
               child: Text(
                 // 'This is where the question text will go.',
-                questions[questionNumber],
+                questionBank[questionNumber].questionText,
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 25.0,
@@ -85,7 +96,10 @@ class _QuizPageState extends State<QuizPage> {
               onPressed: () {
                 //The user picked true.
 
-                bool correctAnswer = answers[questionNumber];
+                // questionBank[questionNumber].questionAnswer = true;
+
+                bool correctAnswer =
+                    questionBank[questionNumber].questionAnswer;
 
                 if (correctAnswer == true) {
                   print("Answer is right");
