@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:quizzler_app/question.dart';
+import 'quiz_brain.dart';
+
+QuizBrain quizBrain = QuizBrain();
 
 void main() => runApp(Quizzler());
 
@@ -47,15 +49,40 @@ class _QuizPageState extends State<QuizPage> {
 
   // Question q1 = Question(q: 'You can lead a cow down stairs but not up stairs.', a: false);
 
-  List<Question> questionBank = [
-    Question(q: 'You can lead a cow down stairs but not up stairs.', a: false),
-    Question(
-        q: 'Approximately one quarter of human bones are in the feet.',
-        a: true),
-    Question(q: 'A slug\'s blood is green.', a: true)
-  ];
+  // List<Question> questionBank = [
+  //   Question(q: 'You can lead a cow down stairs but not up stairs.', a: false),
+  //   Question(
+  //       q: 'Approximately one quarter of human bones are in the feet.',
+  //       a: true),
+  //   Question(q: 'A slug\'s blood is green.', a: true)
+  // ];
 
-  int questionNumber = 0;
+  // int questionNumber = 0;
+
+  void answerCheck(bool selectedAnswer) {
+    bool correctAnswer = quizBrain.getQuestionAnswer();
+    setState(() {
+      if (correctAnswer == selectedAnswer) {
+        // print("Answer is right");
+        scoreKeeper.add(
+          Icon(
+            Icons.check,
+            color: Colors.green,
+          ),
+        );
+      } else {
+        // print("Answer is wrong");
+        scoreKeeper.add(
+          Icon(
+            Icons.close,
+            color: Colors.red,
+          ),
+        );
+      }
+
+      quizBrain.nextQuestion();
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -70,7 +97,8 @@ class _QuizPageState extends State<QuizPage> {
             child: Center(
               child: Text(
                 // 'This is where the question text will go.',
-                questionBank[questionNumber].questionText,
+                // quizBrain.questionBank[questionNumber].questionText,
+                quizBrain.getQuestionText(),
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 25.0,
@@ -96,21 +124,24 @@ class _QuizPageState extends State<QuizPage> {
               onPressed: () {
                 //The user picked true.
 
-                // questionBank[questionNumber].questionAnswer = true;
+                // quizBrain.questionBank[questionNumber].questionAnswer = true;
 
-                bool correctAnswer =
-                    questionBank[questionNumber].questionAnswer;
+                // bool correctAnswer = quizBrain.questionBank[questionNumber].questionAnswer;
 
-                if (correctAnswer == true) {
-                  print("Answer is right");
-                } else {
-                  print("Answer is wrong");
-                }
+                // bool correctAnswer = quizBrain.getQuestionAnswer();
+                //
+                // if (correctAnswer == true) {
+                //   print("Answer is right");
+                // } else {
+                //   print("Answer is wrong");
+                // }
+                //
+                // setState(() {
+                //   quizBrain.nextQuestion();
+                // });
+                // print(questionNumber);
 
-                setState(() {
-                  questionNumber++;
-                });
-                print(questionNumber);
+                answerCheck(true);
               },
             ),
           ),
